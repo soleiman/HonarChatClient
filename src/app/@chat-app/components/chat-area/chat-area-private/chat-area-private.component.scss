@@ -1,0 +1,61 @@
+:host {
+    a {
+        cursor: pointer !important;
+    }
+
+    .msg-check {
+        width: 20px;
+    }
+
+    .message-action {
+        align-self: end;
+    }
+
+    .message .message-text {
+        color: #555 !important;
+        background-color: rgba(0,0,0, .1);
+    }
+
+    .message-out .message-text {
+        color:#fff !important;
+        background-color: #3c73a8 !important;
+    }
+    
+    .chat-body {
+        margin-bottom: 50px;
+        background: transparent;
+    }
+    
+    .message-out .message-footer {
+        text-align: left !important;
+    }
+
+    .txtMsg {
+        resize: none !important;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .txtMsg::-webkit-scrollbar {
+        display: none;
+    }
+
+    .is-admin-msg {
+        background: rgba(61,153,112,.2);
+        padding: 10px;
+        color: #555 !important;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .group-avatar {
+        width: 100px !important;
+        height: 100px !important;
+
+        border: 1px solid rgba(0,0,0, .3);
+    }
+
+    .group-avatar > .avatar-img {
+        padding-top: 10px;
+    }
+}

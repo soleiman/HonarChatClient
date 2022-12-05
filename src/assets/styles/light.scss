@@ -18430,7 +18430,7 @@ html {
   right: 5%;
 }
 .avatar-online::before {
-  background: #ffc107;
+  background: #1DBC60;
 }
 .avatar-offline::before {
   background: #adb5bd;
@@ -18647,13 +18647,13 @@ html {
 }
 .message-text {
   background: #f6f9fb;
-  border-radius: 0.6rem;
+  border-radius: 1.5em;
   padding: 1rem 1.25rem;
   color: #95aac9;
 }
 .message-out .message-text {
   background: #2787f5;
-  border-radius: 0.6rem;
+  border-radius: 1.5em;
   color: #fff;
 }
 .message-content:not(:last-child) .message-text {

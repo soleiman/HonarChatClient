@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row align-items-center justify-content-center min-vh-100 gx-0">
+
+    <div class="col-12 col-md-5 col-lg-4">
+      <div class="card card-shadow border-0">
+        <div class="card-body">
+          <div class="row g-6">
+            <div class="col-12">
+              <div class="text-center">
+                <h3 class="fw-bold mb-2">ورود به پیامرسان هنر</h3>
+                <!-- <p>Login to your account</p> -->
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-floating">
+                <input type="text" name="username"
+                [(ngModel)]="form.username"
+                required #username="ngModel" class="form-control" id="username" placeholder="شماره همراه">
+                <label for="username">شماره همراه</label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-floating">
+                <input type="password" [(ngModel)]="form.password"
+                required
+                minlength="6"
+                #password="ngModel" class="form-control" id="password" placeholder="کلمه عبور">
+                <label for="password">کلمه عبور</label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-block btn-lg btn-primary w-100" type="button" (click)="onSubmit()">وارد شوید</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="text-center mt-8">
+        <p><a href="/#/signup">ثبت نام کنید </a></p>
+        <!-- <p><a href="password-reset.html">Forgot Password?</a></p> -->
+      </div>
+    </div>
+  </div> <!-- / .row -->
+</div>

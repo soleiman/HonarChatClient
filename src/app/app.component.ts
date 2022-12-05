@@ -1,5 +1,5 @@
 import { Component, OnInit, isDevMode } from '@angular/core';
-import { ChatApiService } from './services/chat-api.service';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,12 @@ import { ChatApiService } from './services/chat-api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'HonarChatClient';
+  title = 'پیام رسان هنر';
 
-  constructor(chatApiService: ChatApiService) {
-    chatApiService.getChatListObs().subscribe(s=> {
+  constructor(private storageService: StorageService) {
 
-    });
   }
-
+  
   ngOnInit() {
     if (isDevMode()) {
       console.log('Development!');
