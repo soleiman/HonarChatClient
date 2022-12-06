@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row align-items-center justify-content-center min-vh-100 gx-0">
 
-      <div class="col-12 col-md-5 col-lg-4">
+      <div class="col-12 col-md-5 col-lg-5">
           <div class="card card-shadow border-0">
               <div class="card-body">
                   <div class="row g-6">
@@ -61,7 +61,29 @@
                       </div>
 
                       <div class="col-12">
-                          <button class="btn btn-block btn-lg btn-primary w-100" type="button" (click)="onSubmit()">ثبت نام</button>
+                          <button class="btn btn-block btn-lg btn-primary w-100" type="button" (click)="onSubmit()" [disabled]="isRegistering">
+                            <div class="spinner-border text-warning" role="status" [hidden]="!isRegistering">
+                            </div>  
+                            <div>ثبت نام</div>
+                        </button>
+                      </div>
+                      <div class="col-12 text-center">
+                        <label class="alert alert-warning col-12" role="alert" [hidden]="!isSignUpFailed">
+                            <img src="assets/icons/ExclamationTriangle.svg" alt="" width="30" height="30">
+                            {{errorMessage}}
+                        </label>
+                        <label class="alert alert-info col-12 text-center msg" role="alert" [hidden]="!isSuccessful">
+                            <div class="spinner-border text-warning" role="status">
+                            </div> 
+                            <div class="msg-texts">
+                                <div>
+                                    ثبت نام شما با موفقیت انجام شد.
+                                </div> 
+                                <div>
+                                    لطفا منتظر بمانید...
+                                </div>
+                            </div>
+                        </label>
                       </div>
                   </div>
               </div>
@@ -69,7 +91,7 @@
 
           <!-- Text -->
           <div class="text-center mt-8">
-              <p>قبلا ثبت نام کرده اید? <a href="/#/login">ورود به پیامرسان</a></p>
+              <p>قبلا ثبت نام کرده اید? <a href="/login">ورود به پیامرسان</a></p>
           </div>
 
       </div>

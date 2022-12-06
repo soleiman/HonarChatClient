@@ -1,0 +1,27 @@
+:host {
+    .login-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .login-btn > div {
+        margin-left: 10px;
+    }
+
+    .msg {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .msg > .spinner-border {
+        margin-left: 5px;
+    }
+
+    .msg-texts {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,8 +1,10 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { StorageService } from 'src/app/services/storage.service';
 import { AuthService } from '../../services/auth.service';
 
@@ -19,6 +21,17 @@ import { AuthService } from '../../services/auth.service';
   ],
   providers: [
     AuthService
+  ],
+  animations: [
+    trigger('slideIn', [
+      transition(':enter', [
+        style({transform: 'translateX(-100%)'}),
+        animate('200ms ease-in', style({transform: 'translateX(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({transform: 'translateX(-100%)'}))
+      ])
+    ])
   ]
 })
 export class SignupComponent implements OnInit {
@@ -31,6 +44,8 @@ export class SignupComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  isRegistering = false;
+  faExclamationTriangle = faExclamation;
 
   constructor(private authService: AuthService,
     private storageService: StorageService,
@@ -40,24 +55,33 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
+    debugger;
+    this.isRegistering = true;
     const { mobile_number, full_name, password, profile_image } = this.form;
 
     this.authService.register(mobile_number, full_name, password, profile_image).subscribe({
       next: data => {
+        debugger;
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-
+        this.isRegistering = false;
         this.form.mobile_number = '';
         this.form.full_name = '';
         this.form.password = '';
 
         this.storageService.saveUser(data).subscribe(res => {
+          debugger;
           this.storageService.userSaved$.next(true);
-          this.router.navigateByUrl('/home');
+          setTimeout(() => {
+            this.router.navigateByUrl('/home');
+          }, 5000);
         });
       },
       error: err => {
-        this.errorMessage = err.error.message;
+        debugger;
+        this.isRegistering = false;
+        console.log(err);
+        this.errorMessage = err.error;
         this.isSignUpFailed = true;
       }
     });

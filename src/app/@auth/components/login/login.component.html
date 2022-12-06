@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row align-items-center justify-content-center min-vh-100 gx-0">
 
-    <div class="col-12 col-md-5 col-lg-4">
+    <div class="col-12 col-md-5 col-lg-5">
       <div class="card card-shadow border-0">
         <div class="card-body">
           <div class="row g-6">
@@ -32,7 +32,19 @@
             </div>
 
             <div class="col-12">
-              <button class="btn btn-block btn-lg btn-primary w-100" type="button" (click)="onSubmit()">وارد شوید</button>
+              
+              <button class="btn btn-block btn-lg btn-primary w-100 login-btn" type="button" (click)="onSubmit()" [disabled]="isLoggingIn">
+                <div class="spinner-border text-warning" role="status" [hidden]="!isLoggingIn">
+                </div>  
+                <div>وارد شوید</div>
+              </button>
+            </div>
+
+            <div class="col-12 text-center">
+              <label class="alert alert-warning col-12" role="alert" [hidden]="!isLoginFailed">
+                  <img src="assets/icons/ExclamationTriangle.svg" alt="" width="30" height="30">
+                  {{errorMessage}}
+              </label>
             </div>
           </div>
         </div>
@@ -40,7 +52,7 @@
 
       <!-- Text -->
       <div class="text-center mt-8">
-        <p><a href="/#/signup">ثبت نام کنید </a></p>
+        <p><a href="/signup">ثبت نام کنید </a></p>
         <!-- <p><a href="password-reset.html">Forgot Password?</a></p> -->
       </div>
     </div>
