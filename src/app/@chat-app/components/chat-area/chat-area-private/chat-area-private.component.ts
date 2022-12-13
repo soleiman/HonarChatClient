@@ -157,10 +157,9 @@ export class ChatAreaPrivateComponent implements OnInit, AfterViewInit {
     this.socket.onMsgStatusChanged().subscribe((msg: any) => {
       console.log('[msg_status_changed]:', msg);
       for(let index in this.messages){
-        debugger;
         let statusChanged= false;
         if(this.messages[index].count > 0){
-
+          debugger;
           let objIndex = this.messages[index].list.findIndex(((obj: any) => obj._id === msg.msgId));
 
           if(objIndex > 0) {

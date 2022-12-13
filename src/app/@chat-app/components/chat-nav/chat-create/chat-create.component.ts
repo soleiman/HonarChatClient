@@ -12,6 +12,8 @@ import { ContactApiService } from 'src/app/@chat-app/services/contact-api.servic
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { ToUserProfileImagePipe } from 'src/app/@chat-app/pipes/to-user-profile-image.pipe';
+import { ToUserFullNamePipe } from 'src/app/@chat-app/pipes/to-user-full-name.pipe';
 
 @Component({
   selector: 'app-chat-create',
@@ -21,7 +23,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ToUserProfileImagePipe,
+    ToUserFullNamePipe
   ]
 })
 export class ChatCreateComponent {

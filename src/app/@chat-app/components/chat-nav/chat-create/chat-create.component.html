@@ -172,11 +172,11 @@
                 <div class="row align-items-center gx-5">
                   <div class="col-auto">
                     <div class="avatar">
-                      <img class="avatar-img" src="{{contact.contact_image}}" alt="" />
+                      <img class="avatar-img" src="{{contact.mobile_number | toUserProfileImage | async}}" alt="" />
                     </div>
                   </div>
                   <div class="col">
-                    <h5>{{contact.full_name}}</h5>
+                    <h5>{{contact.mobile_number | toUserFullName | async}}</h5>
                     <p>{{ toDate(contact.last_seen) }}</p>
                   </div>
                   <div class="col-auto">
